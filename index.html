@@ -14,8 +14,34 @@
             #main { overflow: auto; position: absolute; width: 98%; top: 150px; bottom: 0; }
             .dark {color:#090;}
         </style>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function(){ 
+
+        $("#msgid").html("TT"); 
+
+        $.getJSON( "x/x.json", function( data ) {
+          var items = [];
+          $.each( data, function( key, val ) {
+            items.push( "<li id='" + key + "'>" + val + "</li>" );
+          });
+
+          $( "<ul/>", {
+            "class": "my-new-list",
+            html: items.join( "" )
+          }).appendTo( "body" );
+        });
+
+//end-doc-ready
+});
+        </script>
+
     </head>
     <body>
+<div id="msgid">  </div>
+
         <div id="header"><h1 class='dark'><small>@</small>geichel
 <a href='https://google.ie'><button type="button">EXIT➪</button></a>
 </h1>
